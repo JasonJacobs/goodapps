@@ -22,9 +22,9 @@
         <td><%= single_app.image %></td>
         <td><%= single_app.price %></td>
         <td><%= single_app.url %></td>
-        <td><%= link_to 'Show', single_app %></td>
-        <td><%= link_to 'Edit', edit_single_app_path(single_app) %></td>
-        <td><%= link_to 'Destroy', single_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', list_single_app %></td>
+        <td><%= link_to 'Edit', edit_list_single_app_path(single_app) %></td>
+        <td><%= link_to 'Destroy', list_single_app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,5 @@
 
 <br>
 
-<%= link_to 'New Single app', new_single_app_path %>
+<%= link_to 'New Single app', new_list_single_app_path %>
+<%= link_to 'Home', root_path %>

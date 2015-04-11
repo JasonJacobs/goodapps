@@ -21,7 +21,7 @@ class SingleAppsControllerTest < ActionController::TestCase
       post :create, single_app: { description: @single_app.description, image: @single_app.image, name: @single_app.name, price: @single_app.price, url: @single_app.url }
     end
 
-    assert_redirected_to single_app_path(assigns(:single_app))
+    assert_redirected_to list_single_app_path(assigns(:single_app))
   end
 
   test "should show single_app" do
@@ -36,7 +36,7 @@ class SingleAppsControllerTest < ActionController::TestCase
 
   test "should update single_app" do
     patch :update, id: @single_app, single_app: { description: @single_app.description, image: @single_app.image, name: @single_app.name, price: @single_app.price, url: @single_app.url }
-    assert_redirected_to single_app_path(assigns(:single_app))
+    assert_redirected_to list_single_app_path(assigns(:single_app))
   end
 
   test "should destroy single_app" do
@@ -44,6 +44,6 @@ class SingleAppsControllerTest < ActionController::TestCase
       delete :destroy, id: @single_app
     end
 
-    assert_redirected_to single_apps_path
+    assert_redirected_to list_single_apps_path
   end
 end

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amazeface</title>
+        <link rel="stylesheet" href="css/application.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div id="background">
+            <header class="cf">
+                <div class="wrapper_wide">
+                    <a href="#" id="logo">Amazeface</a>
+                    <nav>
+                        <ul>
+                            <%# unless user_signed_in? %>
+                                <li><%= link_to "Explore", users_path %></li>
+                                <li><%#= link_to "Sign In", new_user_session_path %></li>
+                                <li><%#= link_to "Recommend an App", new_user_session_path %></li>
+                            <%# else %>
+                                <li><%= link_to "Profile", lists_path %></li>
+                                <li><%= link_to "Explore", users_path %></li>
+                                <li><%#= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                                <%#= ADD IN BUTTON %>
+                                <li><%= link_to "Recommend an App", new_list_path %></li>
+                            <%# end %>
+                        </ul>
+                    </nav>
+                </div>  
+            </header>
+            <div class="wrapper_skinny">
+                <h1>Discover your new favorite<br> app, or recomend your own.</h1>
+                <%= link_to "Recommend an App", new_list_path, class: 'button button_highlight' %>
+                <%= link_to "Explore", users_path, class: 'button button_white' %>
+            </div>
+        </div>
+    </body>
+</html>
