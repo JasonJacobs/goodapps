@@ -1,4 +1,5 @@
 class SingleAppsController < ApplicationController
+  before_action :set_list
   before_action :set_single_app, only: [:show, :edit, :update, :destroy]
 
   # GET /single_apps
@@ -24,11 +25,12 @@ class SingleAppsController < ApplicationController
   # POST /single_apps
   # POST /single_apps.json
   def create
-    @single_app = SingleApp.new(single_app_params)
-
+    @single_app =  SingleApp.new(single_app_params)
+   
     respond_to do |format|
       if @single_app.save
-        format.html { redirect_to @single_app, notice: 'Single app was successfully created.' }
+        @list.single_apps << @single_app
+        format.html { redirect_to [@list, @single_app], notice: 'Single app was successfully created.' }
         format.json { render :show, status: :created, location: @single_app }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class SingleAppsController < ApplicationController
   def update
     respond_to do |format|
       if @single_app.update(single_app_params)
-        format.html { redirect_to @single_app, notice: 'Single app was successfully updated.' }
+        format.html { redirect_to [@list, @single_app], notice: 'Single app was successfully updated.' }
         format.json { render :show, status: :ok, location: @single_app }
       else
         format.html { render :edit }
@@ -67,6 +69,9 @@ class SingleAppsController < ApplicationController
       @single_app = SingleApp.find(params[:id])
     end
 
+    def set_list
+      @list = List.find(params[:list_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def single_app_params
       params.require(:single_app).permit(:name, :description, :image, :price, :url)

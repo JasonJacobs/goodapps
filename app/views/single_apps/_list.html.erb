@@ -1,0 +1,28 @@
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% single_apps.each do |single_app| %>
+      <tr>
+        <td><%= single_app.name %></td>
+        <td><%= single_app.description %></td>
+        <td><%= single_app.image %></td>
+        <td><%= single_app.price %></td>
+        <td><%= single_app.url %></td>
+        <td><%= link_to 'Show', list_single_app_path(@list, single_app)%></td>
+        <td><%= link_to 'Edit', edit_list_single_app_path(@list, single_app) %></td>
+        <td><%= link_to 'Destroy', list_single_app_path(@list, single_app), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

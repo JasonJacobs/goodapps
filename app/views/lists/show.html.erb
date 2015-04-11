@@ -10,5 +10,7 @@
   <%= @list.user_id %>
 </p>
 
+<%= render 'single_apps/list', single_apps: @list.single_apps %>
+
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
