@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @single_app.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @single_app.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @single_app.image %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @single_app.price %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @single_app.url %>
+</p>
+
+<%= link_to 'Edit', edit_single_app_path(@single_app) %> |
+<%= link_to 'Back', single_apps_path %>
